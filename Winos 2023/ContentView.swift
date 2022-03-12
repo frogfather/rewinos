@@ -11,38 +11,48 @@ struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading) {
             ForEach(1...10, id: \.self) { count in
-                Label("Wine and some other text \(count)", systemImage: /*@START_MENU_TOKEN@*/"42.circle"/*@END_MENU_TOKEN@*/)
-                    .padding(6.0).background(Color.yellow)
+                BottleView(content: "Wine and some text \(count) ")
+            }
+            Spacer()
+            HStack{
+                remove
+                Spacer()
+                add
+            }.padding(.horizontal)
+                .font(.largeTitle)
+        }
+    }
+    
+    var add: some View {
+        Button(
+            action: {},
+            label: {
+                Image(systemName: "plus.circle")
                 
             }
-            HStack{
-                Button(
-                    action: {},
-                    label: {
-                        Text("Button 1")
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.white)
-                        
-                        
-                    }
-                ).background(Color.black)
-                Spacer()
-                Button(
-                    action: {},
-                    label: {
-                        Text("Button 2")
-                            .fontWeight(.bold)
-                            .foregroundColor(Color.white)
-                        
-                    }
-                ).background(Color.black)
-            }.padding(.horizontal)
-                .background(Color.blue)
-        }.padding(10.0)
-            .background(Color.gray)
+        )
+    }
+    var remove: some View {
+        Button(
+            action: {},
+            label: {
+                Image(systemName: "minus.circle")
+            }
+        )
     }
 }
 
+struct BottleView: View {
+    var content: String
+    var body: some View {
+        HStack{
+            Label(content, systemImage: /*@START_MENU_TOKEN@*/"42.circle"/*@END_MENU_TOKEN@*/)
+                .padding(6.0)
+            Spacer()
+            Text(" Test ").padding(Edge.Set .trailing)
+        }.background(Color.yellow)
+    }
+}
 
 
 
