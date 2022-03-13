@@ -10,6 +10,14 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack(alignment: .leading) {
+            HStack{
+            Spacer()
+                Text("Winos")
+                    .font(.largeTitle)
+                Spacer()
+            }
+            
+        
             ForEach(1...10, id: \.self) { count in
                 BottleView(content: "Wine and some text \(count) ")
             }
